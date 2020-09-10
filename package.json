@@ -1,7 +1,7 @@
 {
   "name": "vue-media-preview",
   "description": "支持url预览查看图片、视频、文档类型",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "main": "index.js",
   "scripts": {
     "start": "vue-cli-service serve",
