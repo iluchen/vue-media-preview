@@ -1,3 +1,3 @@
 import Preview from '@/compontents/Preview'
 
-export { Preview }
+export default Preview 
