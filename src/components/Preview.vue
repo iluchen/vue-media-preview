@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import '@/assets/font/iconfont.css'
+import "../assets/font/iconfont.css";
 
 export default {
   name: "vue-media-preview",
