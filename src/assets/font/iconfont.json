@@ -1,0 +1,16 @@
+{
+  "id": "2058455",
+  "name": "vue-media-preview",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "5809193",
+      "name": "删除",
+      "font_class": "shanchu",
+      "unicode": "e690",
+      "unicode_decimal": 59024
+    }
+  ]
+}

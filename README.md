@@ -1,24 +1,17 @@
-# media-perview-with-url
 
-## Project setup
-```
-npm install
-```
 
-### Compiles and hot-reloads for development
 ```
-npm run serve
+npm i vue-media-preview
 ```
 
-### Compiles and minifies for production
-```
-npm run build
-```
 
-### Lints and fixes files
 ```
-npm run lint
-```
+import Preview from "vue-media-preview";
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+components: {
+  Preview,
+},
+
+<Preview :url="url" @hidePreview="hidePreview"></Preview>
+
+```

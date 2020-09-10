@@ -1,9 +1,10 @@
 {
-  "name": "media-perview-with-url",
+  "name": "vue-media-preview",
+  "description": "支持url预览查看图片、视频、文档类型",
   "version": "0.1.0",
-  "private": true,
+  "main": "index.js",
   "scripts": {
-    "serve": "vue-cli-service serve",
+    "start": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
