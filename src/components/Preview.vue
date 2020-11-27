@@ -4,7 +4,7 @@
       <img v-if="type === 'img'" :src="url" alt="暂无图片" />
       <video v-else-if="type === 'video'" controls :src="url"></video>
     </div>
-    <span class="close-btn iconfont icon-shanchu" @click="hidePreview"></span>
+    <span class="close-btn preview-iconfont icon-shanchu" @click="hidePreview"></span>
     <!-- <div class="close-btn" @click="hidePreview">关闭</div> -->
   </div>
 </template>
