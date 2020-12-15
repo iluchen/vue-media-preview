@@ -71,7 +71,7 @@ export default {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(255, 255, 255, 0.6);
+  background: rgba(0, 0, 0, 0.6);
   z-index: 9999;
   .mask {
     width: 100%;
@@ -94,6 +94,7 @@ export default {
     top: 60px;
     font-size: 36px;
     transition: all 0.5s;
+    color: #ffffff;
     &:hover {
       color: red;
       cursor: pointer;
