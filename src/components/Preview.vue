@@ -1,8 +1,10 @@
 <template>
   <div v-show="showMask" class="preview-wrap">
     <div class="mask">
-      <img v-if="type === 'img'" :src="url" alt="暂无图片" />
+      <img ref="img" v-if="type === 'img'" :src="url" alt="暂无图片" />
       <video v-else-if="type === 'video'" controls :src="url"></video>
+
+      <iframe class="frame" ref="iframe" src="" frameborder="0"></iframe>
     </div>
     <span class="close-btn preview-iconfont icon-shanchu" @click="hidePreview"></span>
     <!-- <div class="close-btn" @click="hidePreview">关闭</div> -->
@@ -14,12 +16,20 @@ import "../assets/font/iconfont.css";
 
 export default {
   name: "vue-media-preview",
+
   props: {
     url: {
       type: String,
-      default: "",
+      default: ""
     },
+
+    // 是否可调整大小
+    resize: {
+      type: Boolean,
+      default: false
+    }
   },
+
   data() {
     return {
       showMask: false,
@@ -27,14 +37,16 @@ export default {
       imgSuffix: ["gif", "jpg", "jpeg", "png", "webp"],
       videoSuffix: ["mp4", "webm"],
       docSuffix: ["docx", "dotx", "xlsx", "xls", "pptx", "ppsx", "ppt", "pps"],
-      officeBaseUrl: "https://view.officeapps.live.com/op/view.aspx?src=",
+      officeBaseUrl: "https://view.officeapps.live.com/op/view.aspx?src="
     };
   },
+
   watch: {
     url(v) {
       this.validMediaType(v);
-    },
+    }
   },
+
   methods: {
     hidePreview() {
       this.showMask = false;
@@ -47,7 +59,10 @@ export default {
         return;
       }
       const reg = /\.[^\.]+$/;
-      const suffix = reg.exec(v)[0].substring(1).toLowerCase();
+      const suffix = reg
+        .exec(v)[0]
+        .substring(1)
+        .toLowerCase();
       if (this.imgSuffix.includes(suffix)) {
         this.type = "img";
         this.showMask = true;
@@ -59,8 +74,8 @@ export default {
       } else {
         window.open(this.url, "_blank");
       }
-    },
-  },
+    }
+  }
 };
 </script>
 
@@ -79,13 +94,29 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+
     img {
       max-width: 80%;
       max-height: 80%;
+      position: relative;
+      z-index: 66;
     }
+
     video {
       max-width: 80%;
       max-height: 80%;
+      position: relative;
+      z-index: 66;
+    }
+
+    .frame {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      z-index: 6;
     }
   }
   .close-btn {
@@ -95,6 +126,8 @@ export default {
     font-size: 36px;
     transition: all 0.5s;
     color: #ffffff;
+    z-index: 66;
+
     &:hover {
       color: red;
       cursor: pointer;
