@@ -58,6 +58,13 @@ export default {
       if (!v) {
         return;
       }
+
+      if(/^data:image/.test(v)) {
+        this.type = "img";
+        this.showMask = true;
+        return
+      }
+
       const reg = /\.[^\.]+$/;
       const suffix = reg
         .exec(v)[0]
